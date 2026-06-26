@@ -213,7 +213,38 @@
         to XInput gamepad rumble. All processing runs on your PC at <code>127.0.0.1</code> — no cloud, no account.
       </p>
       <a class="cta" href="https://trademanjr.itch.io/vidration" rel="noopener">Download free on itch.io</a>
+      <p style="margin:0;font-size:0.95rem;"><a href="#feedback">Feedback &amp; requests</a> — anonymous OK</p>
     </header>
+
+    <section aria-labelledby="feedback">
+      <h2 id="feedback">Feedback &amp; requests</h2>
+      <p class="form-note">
+        Anonymous is fine — email is optional (only if you want a reply).
+        Feature ideas, bugs, setup pain. No account required.
+      </p>
+      <form
+        id="feedback-form"
+        action="https://formspree.io/f/mnjkdbej"
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="Vidration site feedback">
+        <input type="hidden" name="product" value="Vidration 1.4.0">
+        <label for="kind">Type</label>
+        <select id="kind" name="kind" required>
+          <option value="feedback">General feedback</option>
+          <option value="feature">Feature request</option>
+          <option value="bug">Bug report</option>
+          <option value="setup">Setup help</option>
+        </select>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required placeholder="What should improve? What broke?"></textarea>
+        <label for="email">Email (optional)</label>
+        <input id="email" type="email" name="email" placeholder="only if you want a reply" autocomplete="email">
+        <label class="hp" aria-hidden="true">Leave empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+        <button class="btn" type="submit">Send</button>
+        <p class="form-ok" id="form-ok" role="status">Sent — thanks.</p>
+      </form>
+    </section>
 
     <section aria-labelledby="features">
       <h2 id="features">Key features</h2>
@@ -269,36 +300,6 @@
         <dt>Who makes Vidration?</dt>
         <dd><a href="https://trademanjr.itch.io">Trademanjr</a> — independent developer of local-first PC tools.</dd>
       </dl>
-    </section>
-
-    <section aria-labelledby="feedback">
-      <h2 id="feedback">Feedback &amp; requests</h2>
-      <p class="form-note">
-        Anonymous is fine — email is optional (only if you want a reply).
-        Feature ideas, bugs, setup pain. No account required.
-      </p>
-      <form
-        id="feedback-form"
-        action="https://formspree.io/f/mnjkdbej"
-        method="POST"
-      >
-        <input type="hidden" name="_subject" value="Vidration site feedback">
-        <input type="hidden" name="product" value="Vidration 1.4.0">
-        <label for="kind">Type</label>
-        <select id="kind" name="kind" required>
-          <option value="feedback">General feedback</option>
-          <option value="feature">Feature request</option>
-          <option value="bug">Bug report</option>
-          <option value="setup">Setup help</option>
-        </select>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" required placeholder="What should improve? What broke?"></textarea>
-        <label for="email">Email (optional)</label>
-        <input id="email" type="email" name="email" placeholder="only if you want a reply" autocomplete="email">
-        <label class="hp" aria-hidden="true">Leave empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
-        <button class="btn" type="submit">Send</button>
-        <p class="form-ok" id="form-ok" role="status">Sent — thanks.</p>
-      </form>
     </section>
 
     <section aria-labelledby="requirements">
