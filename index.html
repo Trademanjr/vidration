@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vidration — Sync Video Motion to Gamepad Haptics (Windows, Free)</title>
+  <meta name="description" content="Vidration is a free Windows app and Chrome extension that automatically syncs on-screen video motion to XInput gamepad haptics. 100% local processing on 127.0.0.1 — no cloud, no account.">
+  <meta name="keywords" content="video gamepad haptics, controller rumble sync, XInput vibration, Chrome extension localhost, automatic video haptics, gamepad feedback Windows, local video motion sync, browser extension gamepad">
+  <meta name="author" content="Trademanjr">
+  <link rel="canonical" href="https://trademanjr.github.io/vidration/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vidration — Video Motion to Gamepad Haptics">
+  <meta property="og:description" content="Free Windows tool + Chrome extension. Syncs video motion to gamepad rumble. All processing stays on your PC.">
+  <meta property="og:url" content="https://trademanjr.github.io/vidration/">
+  <meta property="og:site_name" content="Vidration">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vidration — Video Motion to Gamepad Haptics">
+  <meta name="twitter:description" content="Free Windows app + Chrome extension. Automatic video-to-gamepad haptic sync. 100% local.">
+
+  <link rel="alternate" type="text/plain" href="llms.txt" title="LLM site manifest">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://trademanjr.github.io/vidration/#website",
+        "url": "https://trademanjr.github.io/vidration/",
+        "name": "Vidration",
+        "description": "Sync on-screen video motion to gamepad haptics. Windows app and Chrome extension.",
+        "publisher": { "@id": "https://trademanjr.github.io/vidration/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://trademanjr.github.io/vidration/#organization",
+        "name": "Trademanjr",
+        "url": "https://trademanjr.itch.io",
+        "description": "Independent developer of local-first Windows utilities."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://trademanjr.github.io/vidration/#software",
+        "name": "Vidration",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows 10, Windows 11",
+        "softwareVersion": "1.4.0",
+        "description": "Windows desktop application that maps on-screen video motion to XInput gamepad haptic feedback. Works with a companion Chrome extension that sends frames to localhost only.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "url": "https://trademanjr.itch.io/vidration"
+        },
+        "downloadUrl": "https://trademanjr.itch.io/vidration",
+        "featureList": [
+          "Automatic video motion to gamepad haptic sync",
+          "Chrome extension with localhost WebSocket pipe",
+          "XInput gamepad support",
+          "Local ONNX-based scene analysis",
+          "No cloud upload or user accounts",
+          "Configurable intensity presets"
+        ],
+        "author": { "@id": "https://trademanjr.github.io/vidration/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://trademanjr.github.io/vidration/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Vidration?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vidration is a free Windows application and Chrome browser extension that automatically synchronizes on-screen video motion to XInput gamepad haptic feedback (rumble). The extension sends video frames to the desktop app on 127.0.0.1 only; all machine learning and motion analysis runs locally on your PC."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is Vidration different from iVIBRATE?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "iVIBRATE is a manual vibration pattern editor for gamepads. Vidration automatically analyzes video motion in the browser and drives gamepad haptics in real time without hand-authored patterns. Vidration is video-synced haptics; iVIBRATE is user-controlled vibration scripting."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Vidration upload video to the cloud?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Vidration processes everything locally. The Chrome extension communicates only with the desktop app on localhost (127.0.0.1). No video is uploaded to external servers and no account is required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What do I need to run Vidration?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You need Windows 10 or 11 (64-bit), a USB gamepad with XInput support, Google Chrome or Microsoft Edge, and the Vidration Windows installer. Load the extension as unpacked from the release package. ML models download on first run or during install."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which gamepads work with Vidration?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Any controller that presents as an XInput device on Windows works, including common USB gamepads and Xbox-compatible controllers. Vidration uses standard XInput left and right rumble motors."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #181412;
+      --card: #221e1a;
+      --text: #f2ebe4;
+      --muted: #9a9088;
+      --accent: #e8a060;
+      --border: #2e2824;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    header { margin-bottom: 2rem; }
+    h1 { font-size: 1.75rem; line-height: 1.25; margin: 0 0 0.75rem; }
+    .lede { font-size: 1.1rem; color: var(--muted); margin: 0 0 1.5rem; }
+    .cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #181412;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    h2 { font-size: 1.1rem; margin: 0 0 0.75rem; color: var(--accent); }
+    ul { margin: 0; padding-left: 1.2rem; }
+    li { margin-bottom: 0.35rem; }
+    dl { margin: 0; }
+    dt { font-weight: 600; margin-top: 1rem; }
+    dt:first-child { margin-top: 0; }
+    dd { margin: 0.25rem 0 0; color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    th, td { text-align: left; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 500; }
+    footer { margin-top: 2rem; font-size: 0.85rem; color: var(--muted); }
+    code { background: var(--bg); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Vidration — sync video motion to gamepad haptics</h1>
+      <p class="lede">
+        Vidration is a free Windows app and Chrome extension that automatically maps on-screen video motion
+        to XInput gamepad rumble. All processing runs on your PC at <code>127.0.0.1</code> — no cloud, no account.
+      </p>
+      <a class="cta" href="https://trademanjr.itch.io/vidration" rel="noopener">Download free on itch.io</a>
+    </header>
+
+    <section aria-labelledby="features">
+      <h2 id="features">Key features</h2>
+      <ul>
+        <li><strong>Automatic sync</strong> — motion in the video drives left/right rumble intensity in real time</li>
+        <li><strong>Browser extension</strong> — captures HTML5 video frames and pipes them to the desktop app</li>
+        <li><strong>Local-only</strong> — extension talks to localhost; ML models run on your machine</li>
+        <li><strong>XInput gamepads</strong> — standard USB controllers on Windows 10/11</li>
+        <li><strong>Presets</strong> — Low Power, Feel Sync, Max Mode for CPU vs accuracy tradeoffs</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="how">
+      <h2 id="how">How it works</h2>
+      <ol>
+        <li>Install Vidration on Windows and load the companion Chrome extension (sideload).</li>
+        <li>Play any HTML5 video in the browser.</li>
+        <li>The extension sends frames to the app over a local WebSocket.</li>
+        <li>Vidration analyzes motion and outputs XInput haptic feedback to your gamepad.</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="compare">
+      <h2 id="compare">Vidration vs manual vibration apps</h2>
+      <table>
+        <thead>
+          <tr><th></th><th>Vidration</th><th>Manual pattern apps (e.g. iVIBRATE)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Input</td><td>Live video motion</td><td>User-authored patterns</td></tr>
+          <tr><td>Sync</td><td>Automatic</td><td>Manual / scripted</td></tr>
+          <tr><td>Browser</td><td>Chrome extension + local app</td><td>Typically app-only</td></tr>
+          <tr><td>Cloud</td><td>None</td><td>Varies</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="faq">
+      <h2 id="faq">Frequently asked questions</h2>
+      <dl>
+        <dt>What is Vidration?</dt>
+        <dd>A free Windows utility and Chrome extension that syncs on-screen video motion to gamepad haptics using local processing only.</dd>
+
+        <dt>Is my video uploaded anywhere?</dt>
+        <dd>No. Frames stay on your computer. The extension connects only to <code>127.0.0.1</code>.</dd>
+
+        <dt>What controllers are supported?</dt>
+        <dd>USB gamepads that work as XInput devices on Windows.</dd>
+
+        <dt>What are the system requirements?</dt>
+        <dd>Windows 10/11 (64-bit), Chrome or Edge, XInput gamepad, ~2 GB disk for ML models.</dd>
+
+        <dt>Who makes Vidration?</dt>
+        <dd><a href="https://trademanjr.itch.io">Trademanjr</a> — independent developer of local-first PC tools.</dd>
+      </dl>
+    </section>
+
+    <section aria-labelledby="requirements">
+      <h2 id="requirements">Requirements</h2>
+      <ul>
+        <li>Windows 10 or 11 (64-bit)</li>
+        <li>Google Chrome or Microsoft Edge</li>
+        <li>USB gamepad with XInput support</li>
+        <li>Sideloaded extension from the release package</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>Vidration 1.4.0 · <a href="https://trademanjr.itch.io/vidration">itch.io</a> ·
+      <a href="llms.txt">llms.txt</a> · Not affiliated with Microsoft, console makers, or video platforms.</p>
+    </footer>
+  </div>
+</body>
+</html>
